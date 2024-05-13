@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login')->with('title', 'GeoREDD - Login');
 });
+
 
 Route::middleware([
     'auth:sanctum',
