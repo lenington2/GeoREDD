@@ -10,7 +10,7 @@
             <div id="wrapper">
 
                 <!-- Sidebar -->
-                <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+                <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
                 
                     <!-- Sidebar - Brand -->
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -155,7 +155,7 @@
                                 <input type="text" class="form-control bg-light border-0 small" placeholder="Cercare..."
                                     aria-label="Search" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary" style="background-color: #0275d8; color:white;"type="button">
+                                    <button class="btn btn-danger" type="button"> {{-- style="background-color: #0275d8; color:white;" --}}
                                         <i class="fas fa-search fa-sm"></i>
                                     </button>
                                 </div>
