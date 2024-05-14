@@ -35,7 +35,7 @@
 
                     <!-- Heading -->
                     <div class="sidebar-heading">
-                        Interface
+                        Interfaccia
                     </div>
 
                     <!-- Nav Item - Pages Collapse Menu -->
