@@ -10,8 +10,8 @@
             <div id="wrapper">
 
                 <!-- Sidebar -->
-                <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
-                
+                <ul class="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
+
                     <!-- Sidebar - Brand -->
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                         <div class="sidebar-brand-icon rotate-n-15">
@@ -136,18 +136,18 @@
 
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
-        
+
                 <!-- Main Content -->
                 <div id="content">
-    
+
                     <!-- Topbar -->
                     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-    
+
                         <!-- Sidebar Toggle (Topbar) -->
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                             <i class="fa fa-bars"></i>
                         </button>
-    
+
                         <!-- Topbar Search -->
                         <form
                             class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -161,10 +161,10 @@
                                 </div>
                             </div>
                         </form>
-    
+
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">
-    
+
                             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                             <li class="nav-item dropdown no-arrow d-sm-none">
                                 <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -188,7 +188,7 @@
                                     </form>
                                 </div>
                             </li>
-    
+
                             <!-- Nav Item - Alerts -->
                             <li class="nav-item dropdown no-arrow mx-1">
                                 <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
@@ -239,7 +239,7 @@
                                     <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                                 </div>
                             </li>
-    
+
                             <!-- Nav Item - Messages -->
                             <li class="nav-item dropdown no-arrow mx-1">
                                 <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
@@ -305,22 +305,22 @@
                                     <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                                 </div>
                             </li>
-                                 
-    
+
+
                         </ul>
-    
+
                     </nav>
                     <!-- End of Topbar -->
-    
+
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-    
-                                
-                        
+
+
+
                         <!-- Content Row -->
-    
+
                         <div class="row">
-    
+
                             <!-- Area Chart -->
                             <div class="col-xl-12 col-lg-7">
                                 <div class="card shadow mb-4">
@@ -345,24 +345,24 @@
                                     </div>
                                     <!-- Card Body -->
                                     <div class="card-body">
-                                       
+
                                             <x-home />
-                                        
+
                                     </div>
                                 </div>
                             </div>
-    
-                            
+
+
                         </div>
-    
-                                              
-    
+
+
+
                     </div>
                     <!-- /.container-fluid -->
-    
+
                 </div>
                 <!-- End of Main Content -->
-    
+
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
@@ -374,26 +374,26 @@
                         </div>
                         <div class="copyright text-center my-auto">
                             <span>Via di Monserrato, 25 00186 – Roma (RM)</span>
-                            
+
                         </div>
                         <div class="container d-flex align-items-center">
                           <h1 class="mx-auto"><img src="https://mimeteorologico.com/ITA.png" alt="Bandera de Italia" style="width: 20px; height: auto;"></h1>
                         </div>
                         </div>
-                </footer>        
+                </footer>
                 <!-- End of Footer -->
-    
+
             </div>
             <!-- End of Content Wrapper -->
-    
+
         </div>
         <!-- End of Page Wrapper -->
-    
+
         <!-- Scroll to Top Button-->
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-plus"></i>
         </a>
-    
+
         <!-- Logout Modal-->
         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -413,9 +413,9 @@
                 </div>
             </div>
         </div>
-    
+
         </div>
     </div>
-                
-       
+
+
 </x-app-layout>
