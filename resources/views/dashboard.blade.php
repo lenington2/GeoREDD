@@ -10,14 +10,14 @@
             <div id="wrapper">
 
                 <!-- Sidebar -->
-                <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
+                <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                     <!-- Sidebar - Brand -->
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                         <div class="sidebar-brand-icon rotate-n-15">
                             <img class="sidebar-card-illustration mb-2" src="{{ url('images/mondos.png') }}" width="50" height="50" alt="Mondo">
                         </div>
-                        <div class="sidebar-brand-text mx-3">GeoREDD <sup>v1</sup></div>
+                        <div class="sidebar-brand-text mx-3">GeoREDD<sup>v1</sup></div>
                     </a>
 
                     <!-- Divider -->
@@ -25,7 +25,7 @@
 
                     <!-- Nav Item - Dashboard -->
                     <li class="nav-item active">
-                        <a class="nav-link" href="/">
+                        <a class="nav-link" href="/dashboard">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                             <span>Dashboard</span></a>
                     </li>
@@ -35,7 +35,7 @@
 
                     <!-- Heading -->
                     <div class="sidebar-heading">
-                        Interfaccia
+                        Gestione mappe
                     </div>
 
                     <!-- Nav Item - Pages Collapse Menu -->
@@ -43,13 +43,15 @@
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                             aria-expanded="true" aria-controls="collapseTwo">
                             <i class="fas fa-fw fa-cog"></i>
-                            <span>Components</span>
+                            <span>Progetti</span>
                         </a>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
-                                <h6 class="collapse-header">Custom Components:</h6>
-                                <a class="collapse-item" href="buttons.html">Buttons</a>
-                                <a class="collapse-item" href="cards.html">Cards</a>
+                                {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
+                                <a class="collapse-item" href="buttons.html">Nuovo progetto</a>
+                                <a class="collapse-item" href="cards.html">Progetto 1</a>
+                                <a class="collapse-item" href="cards.html">Progetto 2</a>
+                                <a class="collapse-item" href="cards.html">Progetto 3</a>
                             </div>
                         </div>
                     </li>
@@ -256,7 +258,7 @@
                                     </h6>
                                     <a class="dropdown-item d-flex align-items-center" href="#">
                                         <div class="dropdown-list-image mr-3">
-                                            <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                            <img class="rounded-circle" src=""
                                                 alt="...">
                                             <div class="status-indicator bg-success"></div>
                                         </div>
@@ -268,7 +270,7 @@
                                     </a>
                                     <a class="dropdown-item d-flex align-items-center" href="#">
                                         <div class="dropdown-list-image mr-3">
-                                            <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                            <img class="rounded-circle" src=""
                                                 alt="...">
                                             <div class="status-indicator"></div>
                                         </div>
@@ -280,7 +282,7 @@
                                     </a>
                                     <a class="dropdown-item d-flex align-items-center" href="#">
                                         <div class="dropdown-list-image mr-3">
-                                            <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                            <img class="rounded-circle" src=""
                                                 alt="...">
                                             <div class="status-indicator bg-warning"></div>
                                         </div>
