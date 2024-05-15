@@ -13,7 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }} 
+                        {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -132,81 +132,8 @@
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-            </div>            
-        </div>
-
- <!-- Sidebar -->
- <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <img class="sidebar-card-illustration mb-2" src="{{ url('images/mondos.png') }}" width="50" height="50" alt="Mondo">
-        </div>
-        <div class="sidebar-brand-text mx-3">GeoREDD<sup>v1</sup></div>
-    </a>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="/dashboard">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Gestione mappe
-    </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Progetti</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-                <a class="collapse-item" href="buttons.html">Nuovo progetto</a>
-                <a class="collapse-item" href="cards.html">Elenco progetti</a>
             </div>
         </div>
-    </li>
-</ul>
-<!-- End of Sidebar -->
-
-
-
-<!-- Footer -->
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>REDD SRL START-UP INNOVATIVA</span>
-        </div>
-        <div class="copyright text-center my-auto">
-            <span><a href="https://redd-realestate-data.com/"
-                    target="_blank">redd-realestate-data.com</a> &copy; Your Website 2024</span>
-        </div>
-        <div class="copyright text-center my-auto">
-            <span>Via di Monserrato, 25 00186 – Roma (RM)</span>
-
-        </div>
-        <div class="container d-flex align-items-center">
-            <h1 class="mx-auto"><img src="https://mimeteorologico.com/ITA.png"
-                    alt="Bandera de Italia" style="width: 20px; height: auto;"></h1>
-        </div>
-    </div>
-</footer>
-<!-- End of Footer -->
-
-
     </div>
 
     <!-- Responsive Navigation Menu -->
@@ -289,6 +216,4 @@
             </div>
         </div>
     </div>
-    
 </nav>
-
