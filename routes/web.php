@@ -19,12 +19,11 @@ Route::middleware([
 
 Route::middleware(['auth:sanctum'])->group(function () {
     /* Route::get('/dashboard/analytics', [Analytics::class, 'index'])->name('dashboard-analytics'); */
-    Route::get('/newProject', function () {
-        return view('newProject');
-    })->name('newProject');
-    
-    Route::get('/projects', function () {
-        return view('projects');
-    })->name('projects');
+    Route::get('/new-project', function () {
+        return view('new-project');
+    })->name('new-project');
+
 });
+
+/* Route::resource('projects', 'App\Http\Controllers\ProjectsController'); */
 
