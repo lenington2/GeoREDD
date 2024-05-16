@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Project;
 
 Route::get('/', function () {
     return view('auth.login')->with('title', 'GeoREDD - Login');
@@ -13,7 +14,10 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $projects = Project::join('users', 'projects.created_by', '=', 'users.id')
+            ->select('projects.*', 'users.name as creator_name')
+            ->get();
+        return view('dashboard', ['projects' => $projects]);
     })->name('dashboard');
 });
 
@@ -23,7 +27,13 @@ Route::middleware(['auth:sanctum'])->group(function () {
         return view('new-project');
     })->name('new-project');
 
+    Route::post('projects/create', 'App\Http\Controllers\ProjectController@create');
+
 });
+
+
+
+
 
 /* Route::resource('projects', 'App\Http\Controllers\ProjectsController'); */
 

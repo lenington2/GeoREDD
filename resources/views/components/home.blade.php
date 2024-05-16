@@ -50,13 +50,13 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($data as $row)  --}}
+                @foreach ($projects as $project)
                 <tr>
-                    <td><b></b></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><b>{{ $project->creator_name }}</b></td>
+                    <td>{{ $project->title }}</td>
+                    <td>{{ $project->url_mappa }}</td>
+                    <td>{{ $project->note }}</td>
+                    <td>{{ $project->created_at }}</td>
                     <td style="text-align: center; width: 100px;">
                         <a style="float: center; font-size: 12px; margin-left: 5px;" class="btn btn-success btn-sm"
                             data-toggle="tooltip" data-target="#response" data-resp="" title="vedi progetto">
@@ -67,12 +67,12 @@
                             <span class="fas fa-edit" aria-hidden="true"></span>
                         </a>
                         <a style="float: center; font-size: 12px; margin-left: 5px;" class="btn btn-danger btn-sm"
-                            data-toggle="modal" data-target="#delete" data-id_progetto="1000" title="elimina progetto">
+                            data-toggle="modal" data-target="#delete" data-idprogetto="{{$project->idproject}}" data-title="{{$project->title}}" title="elimina progetto">
                             <span class="fas fa-trash" aria-hidden="true"></span>
                         </a>
                     </td>
                 </tr>
-                {{--  @endforeach    --}}
+                 @endforeach
             </tbody>
         </table>
     </div>

@@ -1,32 +1,39 @@
- <!-- The Modal -->
- <div class="modal fade" id="delete">
-     <div class="modal-dialog modal-dialog-centered modal-md">
-         <div class="modal-content" style="background-color: #d9534f; color:white;">
-             <!-- Modal Header -->
-             <div class="modal-header">
-                 <h4 class="modal-title">Elimina progetto</h4>
-                 <button type="button" style="color:white;"class="close" data-dismiss="modal">&times;</button>
-             </div>
+<!-- The Modal -->
 
-             <!-- Modal body -->
-             <div class="modal-body">
-                 Vuoi eliminare l'progetto <span id="idprogetto"> </span> ?
-             </div>
+{{-- stile personalizzato per il modal --}}
+<link rel="stylesheet" type="text/css" href="css/modal.css">
 
-             <!-- Modal footer -->
-             <div class="modal-footer">
-                 <button id="sendBtn_progetto" class="btn btn-success"
-                     style="background-color: #5cb85c; color: white;">Elimina</button>
-             </div>
-         </div>
-     </div>
- </div>
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header bg-dark text-white">
+                <h4 class="modal-title" id="deleteModalLabel">Elimina progetto</h4>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <p>Vuoi davvero eliminare il progetto <span id="title"></span>?</p>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+                <button id="sendBtn_progetto" class="btn btn-danger">Elimina</button>
+            </div>
+        </div>
+    </div>
+</div>
+
  <script>
     $('#delete').on('show.bs.modal', function(event) {
          let button = $(event.relatedTarget);
-         let id = button.data('id_progetto');
-         console.log(id)
-         document.getElementById("idprogetto").innerHTML = id;
+         let id = button.data('idprogetto');
+         let title = button.data('title');
+         document.getElementById("title").innerHTML = title;
          const sendBtn_progetto = document.getElementById('sendBtn_progetto');
 
          sendBtn_progetto.addEventListener('click', () => {

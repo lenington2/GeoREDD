@@ -5,7 +5,7 @@
     </h5>
 </div>
 <div class="card-body bg-light">
-    <form action="{{ url('projects') }}" method="POST">
+    <form action="{{ url('projects/create') }}" method="POST">
         <div class="card-body">
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-md-12 mb-3">
                         <div class="form-floating">
-                            <input class="form-control form-control-sm" name="title" type="text"
+                            <input class="form-control form-control-sm" name="url" type="text"
                                 value="{{ old('url_mappa') }}" placeholder="URL *">
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                     <div class="col-md-12">
                         @csrf
                         <button type="submit" class="btn btn-success btn-flat btn-sm pull-right mr-2">Salva</button>
-                        <a href="{{ url('projects') }}"
+                        <a href="{{ url('projects/create') }}"
                             class="btn btn-danger btn-flat btn-sm pull-right mr-2">Annulla</a>
                     </div>
                 </div>
