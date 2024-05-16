@@ -1,31 +1,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    @if ($errors->any())
-        <div class="col-lg-12">
-            <div class="alert alert-danger alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                @foreach ($errors->all() as $error)
-                    {{ $error }}<br>
-                @endforeach
-            </div>
+@if ($errors->any())
+    <div class="col-lg-12">
+        <div class="alert alert-danger alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            @foreach ($errors->all() as $error)
+                {{ $error }}<br>
+            @endforeach
         </div>
-    @endif
-    @if (session('message'))
-        <div class="col-lg-12">
-            <div class="alert alert-success alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                {{ session('message') }}
-            </div>
+    </div>
+@endif
+@if (session('message'))
+    <div class="col-lg-12">
+        <div class="alert alert-success alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ session('message') }}
         </div>
-    @endif
-    @if (session('error'))
-        <div class="col-lg-12">
-            <div class="alert alert-danger alert-dismissible fade show">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                {{ session('error') }}
-            </div>
+    </div>
+@endif
+@if (session('error'))
+    <div class="col-lg-12">
+        <div class="alert alert-danger alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ session('error') }}
         </div>
-    @endif
-    <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+    </div>
+@endif
+<div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+    <div class="card-header d-flex justify-content-between align-items-center bg-dark">
+        <h5 class="card-title text-white">Elenco Progetti/Clienti <i data-feather="info"
+                class="feather-sm fill-white me-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="In questa sezione puoi gestire i progetti, associarne uno a un cliente e crearne uno nuovo dal pulsante Nuovo"></i>
+        </h5>
+        <a href="" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#Nuovo_progets">
+            <i data-feather="plus" class="feather-sm fill-white me-1"></i>
+            Nuovo
+        </a>
+    </div>
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-hover" id="dataTable0" width="100%" cellspacing="0">
                 <thead>
@@ -62,3 +73,4 @@
             </table>
         </div>
     </div>
+</div>
