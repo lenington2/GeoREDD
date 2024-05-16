@@ -17,13 +17,13 @@
         <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     
-        <!-- Custom styles for this template-->
-        <link href="css/sb-admin-2.min.css" rel="stylesheet">
-        <!-- Custom styles for this page -->
-        <link href="contenido/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">     
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -54,29 +54,39 @@
         @stack('modals')
 
         @livewireScripts
-
-         <!-- Bootstrap core JavaScript-->
-         <script src="contenido/jquery/jquery.min.js"></script>
-         <script src="contenido/bootstrap/js/bootstrap.bundle.min.js"></script>
-     
-         <!-- Core plugin JavaScript-->
-         <script src="contenido/jquery-easing/jquery.easing.min.js"></script>
-     
-         <!-- Custom scripts for all pages-->
-         <script src="js/sb-admin-2.min.js"></script>
- 
-          <!-- Page level plugins -->
-         <script src="contenido/datatables/jquery.dataTables.min.js"></script>
-         <script src="contenido/datatables/dataTables.bootstrap4.min.js"></script>
- 
-         <!-- Page level custom scripts -->
-         <script src="js/demo/datatables-demo.js"></script>
-     
-         <!-- Page level plugins -->
-         {{-- <script src="contenido/chart.js/Chart.min.js"></script> --}}
-     
-         <!-- Page level custom scripts -->
-         {{-- <script src="js/demo/chart-area-demo.js"></script>
-         <script src="js/demo/chart-pie-demo.js"></script> --}}
+        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+        
     </body>
+    <script>
+         $(document).ready(function() {
+        var table = $('#dataTable0').DataTable({
+            "responsive": true,
+            "pageLength": 10,
+            "order": [[1, "asc"]],
+            "language": {
+               "sEmptyTable": "Nessun dato disponibile nella tabella",
+                    "sInfo": "Visualizzazione da _START_ a _END_ di _TOTAL_ elementi",
+                    "sInfoEmpty": "Visualizzazione da 0 a 0 di 0 elementi",
+                    "sInfoFiltered": "(filtrati da _MAX_ elementi totali)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ",",
+                    "sLengthMenu": "Visualizza _MENU_ elementi",
+                    "sLoadingRecords": "Caricamento...",
+                    "sProcessing": "Elaborazione...",
+                    "sSearch": "Ricerca:",
+                    "sZeroRecords": "La ricerca non ha portato alcun risultato.",
+                    "oPaginate": {
+                        "sFirst": "Inizio",
+                        "sPrevious": "Precedente",
+                        "sNext": "Successivo",
+                        "sLast": "Fine"
+                },
+                "aria": {
+                    "sSortAscending": ": attiva per ordinare la colonna in ordine crescente",
+                    "sSortDescending": ": attiva per ordinare la colonna in ordine decrescente"
+                }
+            }
+        });
+    });   
+    </script>
 </html>

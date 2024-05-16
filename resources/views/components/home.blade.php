@@ -1,6 +1,66 @@
-<div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <iframe id="REDD" title="REDD" style="width: 100%; height: 400" height="800"
-        src="https://webgis.redd-realestate-data.com/it/map/pratiche_studio_delli_santi/?__bratk=0cac317bb288a3e4fc17f943f34b459f315702c9">
-    </iframe>
-</div>
+
+    @if ($errors->any())
+        <div class="col-lg-12">
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                @foreach ($errors->all() as $error)
+                    {{ $error }}<br>
+                @endforeach
+            </div>
+        </div>
+    @endif
+    @if (session('message'))
+        <div class="col-lg-12">
+            <div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ session('message') }}
+            </div>
+        </div>
+    @endif
+    @if (session('error'))
+        <div class="col-lg-12">
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ session('error') }}
+            </div>
+        </div>
+    @endif
+    <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+
+
+        <div class="table-responsive">
+            <table class="table table-hover" id="dataTable0" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Ordine</th>
+                        <th>Data</th>
+                        <th>Cliente</th>
+                        <th>Ref. Ordine</th>
+
+                        <th style="text-align: center; width: 100px;">Risposta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{-- @foreach ($data as $row)  --}}
+                    <tr>
+                        <td><b></b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+
+                        <td style="text-align: center; width: 100px;">
+                            <a style="float: center; font-size: 12px; margin-left: 5px;" class="btn btn-primary btn-sm"
+                                data-toggle="modal" data-target="#response" data-resp="">
+                                <span class="fas fa-eye" aria-hidden="true"></span>
+                            </a>
+                        </td>
+                    </tr>
+                    {{--  @endforeach    --}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+   
