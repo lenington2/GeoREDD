@@ -25,13 +25,14 @@
         </div>
     </div>
 @endif
+@include('include.delete')
 <div class="card-header d-flex justify-content-between align-items-center bg-dark">
     <h5 class="card-title text-white">Elenco Progetti <i data-feather="info" class="feather-sm fill-white me-1"
             data-bs-toggle="tooltip" data-bs-placement="top"
             title="In questa sezione puoi gestire i progetti, associarne uno a un cliente e crearne uno nuovo dal pulsante Nuovo"></i>
     </h5>
     <a href="{{url('/new-project')}}" class="btn btn-info btn-sm">
-        <i data-feather="plus" class="feather-sm fill-white me-1"></i>
+        <span class="fas fa-plus" aria-hidden="true"></span>
         Nuovo
     </a>
 </div>
@@ -66,7 +67,7 @@
                             <span class="fas fa-edit" aria-hidden="true"></span>
                         </a>
                         <a style="float: center; font-size: 12px; margin-left: 5px;" class="btn btn-danger btn-sm"
-                            data-toggle="tooltip" data-target="#response" data-resp="" title="elimina progetto">
+                            data-toggle="modal" data-target="#delete" data-id_progetto="1000" title="elimina progetto">
                             <span class="fas fa-trash" aria-hidden="true"></span>
                         </a>
                     </td>
