@@ -20,6 +20,7 @@ class Project extends Model
         'title',
         'url_mappa',
         'note',
+        'file_path',
         'created_by',
         'active'
     ];

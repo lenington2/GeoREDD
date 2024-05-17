@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Project;
+use App\Http\Controllers\ProjectController;
 
 Route::get('/', function () {
     return view('auth.login')->with('title', 'GeoREDD - Login');
@@ -28,6 +29,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
     })->name('new-project');
 
     Route::post('projects/create', 'App\Http\Controllers\ProjectController@create');
+
+    Route::delete('projects/{id}/destroy', 'App\Http\Controllers\ProjectController@destroy');
+
 
 });
 

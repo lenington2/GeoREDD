@@ -64,7 +64,7 @@
             "responsive": true,
             "pageLength": 10,
             "order": [
-                [1, "asc"]
+                [4, "desc"]
             ],
             "language": {
                 "sEmptyTable": "Nessun dato disponibile nella tabella",

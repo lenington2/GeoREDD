@@ -22,47 +22,25 @@
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
-                <button id="sendBtn_progetto" class="btn btn-danger">Elimina</button>
+                <form id="deleteForm" method="POST" action="">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Elimina</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
 
- <script>
+<script>
     $('#delete').on('show.bs.modal', function(event) {
-         let button = $(event.relatedTarget);
-         let id = button.data('idprogetto');
-         let title = button.data('title');
-         document.getElementById("title").innerHTML = title;
-         const sendBtn_progetto = document.getElementById('sendBtn_progetto');
+        let button = $(event.relatedTarget);
+        let id = button.data('idprogetto');
+        let title = button.data('title');
+        document.getElementById("title").innerHTML = title;
 
-         sendBtn_progetto.addEventListener('click', () => {
-             const token_progetto = document.querySelector('meta[name="csrf-token"]').getAttribute(
-                 'content');
-             let data = {
-                 'idprogetto': id,
-             };
-
-             // Realizar la solicitud POST
-             fetch("https://customers.onetyres1.com/delete_progetto", {
-                     method: 'POST',
-                     headers: {
-                         'Content-Type': 'application/json',
-                         'X-CSRF-TOKEN': token_progetto
-                     },
-                     body: JSON.stringify(data)
-                 })
-                 .then((response) => {
-                     return response.json().then((data) => {
-
-                         console.log(data);
-                         window.location.reload()
-                     }).catch((err) => {
-                         console.log(err);
-                         window.location.reload()
-                     });
-                 });
-         });
-
-     });
- </script>
+        // Set form action URL with project ID
+        let form = document.getElementById('deleteForm');
+        form.action = `/projects/${id}/destroy`;
+    });
+</script>

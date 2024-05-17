@@ -5,7 +5,7 @@
     </h5>
 </div>
 <div class="card-body bg-light">
-    <form action="{{ url('projects/create') }}" method="POST">
+    <form action="{{ url('projects/create') }}" enctype="multipart/form-data" method="POST">
         <div class="card-body">
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -30,6 +30,7 @@
                         </div>
                     </div>
                 </div>
+                <input class="form-control mt-3" type="file" name="file">
                 <hr class="my-4">
                 <div class="row">
                     <div class="col-md-12">
@@ -43,7 +44,7 @@
                     <div class="col-md-12">
                         @csrf
                         <button type="submit" class="btn btn-success btn-flat btn-sm pull-right mr-2">Salva</button>
-                        <a href="{{ url('projects/create') }}"
+                        <a href="{{ url('dashboard') }}"
                             class="btn btn-danger btn-flat btn-sm pull-right mr-2">Annulla</a>
                     </div>
                 </div>
