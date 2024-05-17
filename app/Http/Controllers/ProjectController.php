@@ -74,4 +74,13 @@ class ProjectController extends Controller
 
         return redirect()->route('dashboard')->with('message','Progetto eliminato con successo!');
     }
+
+    public function mappa(Request $request, $id)
+    {
+        $project = Project::findOrFail($id); 
+        //dd($project);   
+
+        return view('dashboard_mappa', ['projects' => $project]);
+    }
+
 }

@@ -32,6 +32,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::delete('projects/{id}/destroy', 'App\Http\Controllers\ProjectController@destroy');
 
+    Route::get('mappa/{id}', 'App\Http\Controllers\ProjectController@mappa');
+
 
 });
 

@@ -1,30 +1,5 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-@if ($errors->any())
-    <div class="col-lg-12">
-        <div class="alert alert-danger alert-dismissible fade show">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            @foreach ($errors->all() as $error)
-                {{ $error }}<br>
-            @endforeach
-        </div>
-    </div>
-@endif
-@if (session('message'))
-    <div class="col-lg-12">
-        <div class="alert alert-success alert-dismissible fade show">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ session('message') }}
-        </div>
-    </div>
-@endif
-@if (session('error'))
-    <div class="col-lg-12">
-        <div class="alert alert-danger alert-dismissible fade show">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ session('error') }}
-        </div>
-    </div>
-@endif
+
 @include('include.delete')
 <div class="card-header d-flex justify-content-between align-items-center bg-dark">
     <h5 class="card-title text-white">Elenco Progetti <i data-feather="info" class="feather-sm fill-white me-1"
@@ -58,8 +33,9 @@
                     <td>{{ $project->note }}</td>
                     <td>{{ $project->created_at }}</td>
                     <td style="text-align: center; width: 100px;">
-                        <a style="float: center; font-size: 12px; margin-left: 5px;" class="btn btn-success btn-sm"
-                            data-toggle="tooltip" data-target="#response" data-resp="" title="vedi progetto">
+                        <a href="{{ url('/mappa/' . $project->idproject) }}"
+                            style="float: center; font-size: 12px; margin-left: 5px;" class="btn btn-success btn-sm"
+                            data-toggle="tooltip" title="vedi progetto">
                             <span class="fas fa-eye" aria-hidden="true"></span>
                         </a>
                         <a style="float: center; font-size: 12px; margin-left: 5px;" class="btn btn-primary btn-sm"
