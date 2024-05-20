@@ -34,6 +34,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('mappa/{id}', 'App\Http\Controllers\ProjectController@mappa');
 
+    Route::get('edit/{id}', 'App\Http\Controllers\ProjectController@edit');
+
 
 });
 

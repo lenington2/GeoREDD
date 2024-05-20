@@ -38,7 +38,8 @@
                             data-toggle="tooltip" title="vedi progetto">
                             <span class="fas fa-eye" aria-hidden="true"></span>
                         </a>
-                        <a style="float: center; font-size: 12px; margin-left: 5px;" class="btn btn-primary btn-sm"
+                        <a href="{{ url('/edit/' . $project->idproject) }}"
+                            style="float: center; font-size: 12px; margin-left: 5px;" class="btn btn-primary btn-sm"
                             data-toggle="tooltip" data-target="#response" data-resp="" title="modifica progetto">
                             <span class="fas fa-edit" aria-hidden="true"></span>
                         </a>

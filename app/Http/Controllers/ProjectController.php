@@ -78,9 +78,19 @@ class ProjectController extends Controller
     public function mappa(Request $request, $id)
     {
         $project = Project::findOrFail($id); 
-        //dd($project);   
+        
 
         return view('dashboard_mappa', ['projects' => $project]);
     }
 
+
+public function edit(Request $request, $id)
+    {
+
+        $project = Project::findOrFail($id); 
+        
+
+        return view('edit-project', ['projects' => $project]);
+
+    }
 }
