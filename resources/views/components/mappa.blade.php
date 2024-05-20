@@ -7,5 +7,5 @@
 </div>
 
 <div class="card-body bg-light">   
-    <iframe id="GeoREDD" title="GeoREDD" style="width: 100%; height: 400" height="600" src="{{ $projects->url_mappa }}"> </iframe>    
+    <iframe id="GeoREDD" title="GeoREDD" style="width: 100%; height: 800" height="800" src="{{ $projects->url_mappa }}"> </iframe>    
 </div>
