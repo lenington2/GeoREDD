@@ -10,9 +10,16 @@ use App\Models\Project;
 
 class ProjectController extends Controller
 {
-    public function create(Request $request)
+
+    // Dichiarazione delle variabili come proprietà della classe
+    protected $messages;
+    protected $rules;
+    protected $attributeNames;
+
+    // Costruttore per inizializzare le variabili
+    public function __construct()
     {
-        $messages = [
+        $this->messages = [
             'required' => 'Il campo :attribute è vuoto!',
             'in' => 'Il campo :attribute non è del tipo corretto!',
             'string' => 'Il campo :attribute non è una stringa!',
@@ -21,31 +28,32 @@ class ProjectController extends Controller
             'integer' => 'Il campo :attribute non è un numero!',
             'numeric' => 'Il campo :attribute non è un numero!',
             'email' => 'Il campo :attribute non è un\'indirizzo email!',
-            'email.unique' =>
-                'La e-mail inserita è già registrata con un altro cliente!',
+            'email.unique' => 'La e-mail inserita è già registrata con un altro cliente!',
             'required_if' => 'Il campo :attribute è obbligatorio',
-            'mimes' => "Il file inserito non è del formato corretto!",
+            'mimes' => 'Il file inserito non è del formato corretto!',
         ];
 
-        $rules = [
+        $this->rules = [
             'title' => 'required|string|max:80',
             'url' => 'required|url|max:255',
-            'file' => 'required|file|mimes:xls,xlsx,pdf',
+            'file' => 'nullable|file|mimes:xls,xlsx,pdf',
             'note' => 'nullable|string|max:255',
         ];
 
-        $attributeNames = [
+        $this->attributeNames = [
             'title' => 'titolo',
             'url' => 'url',
             'file' => 'file',
             'note' => 'note',
         ];
-
+    }
+    public function create(Request $request)
+    {
         $validator = Validator::make(
             $request->all(),
-            $rules,
-            $messages,
-            $attributeNames
+            $this->rules,
+            $this->messages,
+            $this->attributeNames
         );
 
         if ($validator->fails()) {
@@ -82,15 +90,43 @@ class ProjectController extends Controller
 
         return view('dashboard_mappa', ['projects' => $project]);
     }
-
-
-    public function edit(Request $request, $id)
+    public function update(Request $request, $id)
     {
+        $validator = Validator::make(
+            $request->all(),
+            $this->rules,
+            $this->messages,
+            $this->attributeNames
+        );
 
-        $project = Project::findOrFail($id);
+        if ($validator->fails()) {
+            return redirect()->route('edit-project', ['id' => $id])
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $project = Project::findOrFail($id);
 
+            $project->title = $request->input('title');
+            $project->url_mappa = $request->input('url');
 
-        return view('edit-project', ['projects' => $project]);
+            // Controlla se l'utente ha selezionato di eliminare il file attuale
+            if ($request->has('delete_file') && $request->input('delete_file') == 1) {
+                // Elimina il file attuale
+                if ($project->file_path) {
+                    Storage::disk('public')->delete($project->file_path);
+                    $project->file_path = null; // Rimuovi il riferimento al file
+                }
+            }
+            if ($request->hasFile('file')) {
+                // Carica un nuovo file
+                $project->file_path = Storage::disk('public')->put('files', $request->file('file'));
+            }
 
+            $project->note = $request->input('note');
+            $project->updated_by = $request->user()->id;
+            $project->save();
+
+            return redirect()->route('dashboard')->with('message', 'Progetto aggiornato con successo!');
+        }
     }
 }

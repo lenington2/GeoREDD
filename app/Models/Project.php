@@ -22,6 +22,7 @@ class Project extends Model
         'note',
         'file_path',
         'created_by',
+        'updated_by',
         'active'
     ];
 

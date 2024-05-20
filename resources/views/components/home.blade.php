@@ -16,7 +16,7 @@
         <table class="table table-hover" id="dataTable0" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>Utente</th>
+                    <th>Caricato da</th>
                     <th>Titolo</th>
                     <th>Url mappa</th>
                     <th>Note</th>
@@ -38,7 +38,7 @@
                             data-toggle="tooltip" title="vedi progetto">
                             <span class="fas fa-eye" aria-hidden="true"></span>
                         </a>
-                        <a href="{{ url('/edit/' . $project->idproject) }}"
+                        <a href="{{ url('/edit-project/' . $project->idproject) }}"
                             style="float: center; font-size: 12px; margin-left: 5px;" class="btn btn-primary btn-sm"
                             data-toggle="tooltip" data-target="#response" data-resp="" title="modifica progetto">
                             <span class="fas fa-edit" aria-hidden="true"></span>

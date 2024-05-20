@@ -28,13 +28,18 @@ Route::middleware(['auth:sanctum'])->group(function () {
         return view('new-project');
     })->name('new-project');
 
+    Route::get('/edit-project/{id}', function ($id) {
+        $project = Project::findOrFail($id);
+        return view('edit-project', ['project' => $project]);
+    })->name('edit-project');
+
     Route::post('projects/create', 'App\Http\Controllers\ProjectController@create');
 
     Route::delete('projects/{id}/destroy', 'App\Http\Controllers\ProjectController@destroy');
 
     Route::get('mappa/{id}', 'App\Http\Controllers\ProjectController@mappa');
 
-    Route::get('edit/{id}', 'App\Http\Controllers\ProjectController@edit');
+    Route::post('projects/update/{id}', 'App\Http\Controllers\ProjectController@update');
 
 
 });
