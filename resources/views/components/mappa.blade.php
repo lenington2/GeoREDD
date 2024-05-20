@@ -3,9 +3,9 @@
     <h5 class="card-title text-white">{{ $projects->title }} <i data-feather="info" class="feather-sm fill-white me-1"
             data-bs-toggle="tooltip" data-bs-placement="top"
             title="*********"></i>
-    </h5>    
+    </h5>
 </div>
 
-<div class="card-body bg-light">   
-    <iframe id="GeoREDD" title="GeoREDD" style="width: 100%; height: 400" height="600" src="{{ $projects->url_mappa }}"> </iframe>    
+<div class="card-body bg-light">
+    <iframe id="GeoREDD" title="GeoREDD" style="width: 100%; height: 400" height="600" src="{{ $projects->url_mappa }}"> </iframe>
 </div>

@@ -37,7 +37,7 @@ class ProjectController extends Controller
         $attributeNames = [
             'title' => 'titolo',
             'url' => 'url',
-            'file'=> 'file',
+            'file' => 'file',
             'note' => 'note',
         ];
 
@@ -72,23 +72,23 @@ class ProjectController extends Controller
         $project = Project::findOrFail($id);
         $project->delete();
 
-        return redirect()->route('dashboard')->with('message','Progetto eliminato con successo!');
+        return redirect()->route('dashboard')->with('message', 'Progetto eliminato con successo!');
     }
 
     public function mappa(Request $request, $id)
     {
-        $project = Project::findOrFail($id); 
-        
+        $project = Project::findOrFail($id);
+
 
         return view('dashboard_mappa', ['projects' => $project]);
     }
 
 
-public function edit(Request $request, $id)
+    public function edit(Request $request, $id)
     {
 
-        $project = Project::findOrFail($id); 
-        
+        $project = Project::findOrFail($id);
+
 
         return view('edit-project', ['projects' => $project]);
 
