@@ -35,7 +35,7 @@
                 <div class="col-md-12 mb-3">
                     <label for="current_file">File attuale:</label>
                     @if ($project->file_path)
-                        <a href="{{ Storage::url($project->file_path) }}" target="_blank">Visualizza</a><br>
+                        <a href="{{ url('/download/' . $project->idproject) }}">Scarica</a><br>
                         <input type="checkbox" id="delete_file" name="delete_file" value="1">
                         <label for="delete_file">Elimina file</label>
                     @else

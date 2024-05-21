@@ -9,8 +9,8 @@
                 Azioni
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#" id="fullScreenBtn">Full Screen</a>
-                <a class="dropdown-item" href="{{ url('/download/' . $projects->idproject) }}">Download File</a>
+                <a class="dropdown-item" href="#" id="fullScreenBtn">FullScreen</a>
+                <a class="dropdown-item" href="{{ url('/download/' . $projects->idproject) }}">Scarica file</a>
             </div>
         </div>
     </div>
