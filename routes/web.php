@@ -22,7 +22,8 @@ Route::middleware([
             ->get();
         $role = Auth::user()->role;
         if($role == 'admin') {
-            $users = User::all();
+            $authenticatedUser = Auth::user();
+            $users = User::where('id', '!=', $authenticatedUser->id)->get();
             return view('dashboard', ['projects' => $projects, 'users'=> $users]);
         } else {
             return view('dashboardUser', ['projects' => $projects]);
