@@ -85,11 +85,41 @@
 </body>
 <script>
     $(document).ready(function() {
-        var table = $('#dataTable0').DataTable({
+        $('#dataTable0').DataTable({
             "responsive": true,
             "pageLength": 10,
             "order": [
-                [4, "desc"]
+                [2, "desc"]
+            ],
+            "language": {
+                "sEmptyTable": "Nessun dato disponibile nella tabella",
+                "sInfo": "Visualizzazione da _START_ a _END_ di _TOTAL_ elementi",
+                "sInfoEmpty": "Visualizzazione da 0 a 0 di 0 elementi",
+                "sInfoFiltered": "(filtrati da _MAX_ elementi totali)",
+                "sInfoPostFix": "",
+                "sInfoThousands": ",",
+                "sLengthMenu": "Visualizza _MENU_ elementi",
+                "sLoadingRecords": "Caricamento...",
+                "sProcessing": "Elaborazione...",
+                "sSearch": "Ricerca:",
+                "sZeroRecords": "La ricerca non ha portato alcun risultato.",
+                "oPaginate": {
+                    "sFirst": "Inizio",
+                    "sPrevious": "Precedente",
+                    "sNext": "Successivo",
+                    "sLast": "Fine"
+                },
+                "aria": {
+                    "sSortAscending": ": attiva per ordinare la colonna in ordine crescente",
+                    "sSortDescending": ": attiva per ordinare la colonna in ordine decrescente"
+                }
+            }
+        });
+        $('#dataTable1').DataTable({
+            "responsive": true,
+            "pageLength": 10,
+            "order": [
+                [3, "desc"]
             ],
             "language": {
                 "sEmptyTable": "Nessun dato disponibile nella tabella",
