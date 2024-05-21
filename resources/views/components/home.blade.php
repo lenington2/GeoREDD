@@ -6,7 +6,7 @@
             data-bs-toggle="tooltip" data-bs-placement="top"
             title="In questa sezione puoi gestire i progetti, associarne uno a un cliente e crearne uno nuovo dal pulsante Nuovo"></i>
     </h5>
-    <a href="{{url('/new-project')}}" class="btn btn-info btn-sm {{ $role === 'admin' ? '' : 'disabled' }}">
+    <a href="{{url('/new-project')}}" class="btn btn-info btn-sm">
         <span class="fas fa-plus" aria-hidden="true"></span>
         Nuovo
     </a>
@@ -37,11 +37,11 @@
                             <span class="fas fa-eye" aria-hidden="true"></span>
                         </a>
                         <a href="{{ url('/edit-project/' . $project->idproject) }}"
-                            style="float: center; font-size: 12px; margin-left: 5px;" class="btn btn-primary btn-sm {{ $role === 'admin' ? '' : 'disabled' }}"
+                            style="float: center; font-size: 12px; margin-left: 5px;" class="btn btn-primary btn-sm"
                             data-toggle="tooltip" data-target="#response" data-resp="" title="modifica progetto">
                             <span class="fas fa-edit" aria-hidden="true"></span>
                         </a>
-                        <a style="float: center; font-size: 12px; margin-left: 5px;" class="btn btn-danger btn-sm {{ $role === 'admin' ? '' : 'disabled' }}"
+                        <a style="float: center; font-size: 12px; margin-left: 5px;" class="btn btn-danger btn-sm"
                             data-toggle="modal" data-target="#delete" data-idprogetto="{{$project->idproject}}" data-title="{{$project->title}}" title="elimina progetto">
                             <span class="fas fa-trash" aria-hidden="true"></span>
                         </a>
