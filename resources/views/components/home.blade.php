@@ -93,12 +93,7 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->role }}</td>
                                 <td>{{ $user->created_at }}</td>
-                                <td style="text-align: center; width: 100px;">
-                                    <a href="{{ url('/edit-user/' . $user->id) }}"
-                                        style="float: center; font-size: 12px; margin-left: 5px;"
-                                        class="btn btn-primary btn-sm" data-toggle="tooltip" title="modifica utente">
-                                        <span class="fas fa-edit" aria-hidden="true"></span>
-                                    </a>
+                                <td style="text-align: center; width: 100px;">                                    
                                     <a style="float: center; font-size: 12px; margin-left: 5px;"
                                         class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteUser"
                                         data-iduser="{{ $user->id }}" data-name="{{ $user->name }}"

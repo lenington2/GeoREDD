@@ -49,10 +49,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::get('/edit-project/{id}', function ($id) {
             $project = Project::findOrFail($id);
             return view('edit-project', ['project' => $project]);
-        })->name('edit-project');
+        })->name('edit-project');       
 
-        Route::post('projects/update/{id}', 'App\Http\Controllers\ProjectController@update');
-        /* Route::post('users/update/{id}', 'App\Http\Controllers\UserController@update'); */
+        Route::post('projects/update/{id}', 'App\Http\Controllers\ProjectController@update');        
 
         //eliminazione
         Route::delete('projects/{id}/destroy', 'App\Http\Controllers\ProjectController@destroy');
