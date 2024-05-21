@@ -38,10 +38,8 @@
                         {{ session('error') }}
                     </div>
                 </div>
-            @endif
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-homeUser :projects="$projects" />
-            </div>
+            @endif          
+                <x-homeUser :projects="$projects" />          
         </div>
     </div>
 </x-app-layout>

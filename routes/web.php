@@ -55,7 +55,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
         //eliminazione
         Route::delete('projects/{id}/destroy', 'App\Http\Controllers\ProjectController@destroy');
-        Route::delete('users/{id}/destroy', 'App\Http\Controllers\ProjectController@destroy');
+        Route::delete('users/{id}/destroy', 'App\Http\Controllers\UserController@destroy');
 
        
     });

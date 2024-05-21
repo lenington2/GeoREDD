@@ -73,4 +73,12 @@ class UserController extends Controller
             return redirect()->route('dashboard')->with('message', 'Utente creato con successo!');
         }
     }
+
+    public function destroy(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('dashboard')->with('message', 'Utente eliminato con successo!');
+    }
 }
