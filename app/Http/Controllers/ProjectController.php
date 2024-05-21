@@ -129,4 +129,16 @@ class ProjectController extends Controller
             return redirect()->route('dashboard')->with('message', 'Progetto aggiornato con successo!');
         }
     }
+
+    public function download(Request $request, $id)
+{
+    $project = Project::findOrFail($id);
+    $path = $project->file_path;
+    
+    if (Storage::exists('public/'.$path)) {
+        return Storage::download('public/'.$path);
+    }
+   
+    return redirect()->back()->with('error', 'Il file non esiste.');
+}
 }

@@ -41,6 +41,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::post('projects/update/{id}', 'App\Http\Controllers\ProjectController@update');
 
+    Route::get('download/{id}', 'App\Http\Controllers\ProjectController@download');
+
 
 });
 
