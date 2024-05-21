@@ -33,20 +33,19 @@
     <div class="col-9">
         <div class="card" id="fullCard">
             <div class="card-header d-flex justify-content-between align-items-center bg-dark">
-                <h5 id="project-title" class="card-title text-white">
-                    {{-- {{ $projects->title }} --}}
-                    <i data-feather="info" class="feather-sm fill-white me-1" data-bs-toggle="tooltip" data-bs-placement="top" title="*********"></i>
-                </h5>
+                <h4 id="project-title" class="card-title text-white">
+                    Mappa Italia
+                </h4>
                 <div class="dropdown">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Azioni</button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#" id="fullScreenBtn">FullScreen</a>
-                        <a id="download-link" class="dropdown-item" href="#">Scarica file</a>
+                        <a class="dropdown-item" href="#" id="fullScreenBtn">Fullscreen</a>
+                        <a id="download-link" class="dropdown-item" href="#">Scarica layers</a>
                     </div>
                 </div>
             </div>
             <div class="card-body bg-light" id="cardBody">
-                <iframe id="GeoREDD" title="GeoREDD" style="width: 100%; height: 400" height="600" src="https://google.com"></iframe>
+                <iframe id="GeoREDD" title="GeoREDD" style="width: 100%; height: 400" height="600" src="https://google.com"></iframe>  {{-- inserire mappa Italia --}}
             </div>
         </div>
     </div>
@@ -63,7 +62,7 @@
             $('#GeoREDD').attr('src', mapUrl);
 
             // Update the card title
-            $('#project-title').text(projectTitle);
+            $('#project-title').text('Mappa ' + projectTitle);
 
             // Update the download link
             $('#download-link').attr('href', '/download/' + projectId);

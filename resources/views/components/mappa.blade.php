@@ -9,8 +9,8 @@
                 Azioni
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#" id="fullScreenBtn">FullScreen</a>
-                <a class="dropdown-item" href="{{ url('/download/' . $projects->idproject) }}">Scarica file</a>
+                <a class="dropdown-item" href="#" id="fullScreenBtn">Fullscreen</a>
+                <a class="dropdown-item" href="{{ url('/download/' . $projects->idproject) }}">Scarica layers</a>
             </div>
         </div>
     </div>
