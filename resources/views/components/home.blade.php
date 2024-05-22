@@ -1,6 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 @include('include.deleteUser')
+@include('include.delete')
 
 
 <div class="row">
