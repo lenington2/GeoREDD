@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>GeoREDD</title>
-    <link rel="shortcut icon" type="image/png" href="{{ url('images/mondos.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ url('loghi/GeoREDD.png') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -87,7 +87,7 @@
     $(document).ready(function() {
         $('#dataTable0').DataTable({
             "responsive": true,
-            "pageLength": 10,
+            "pageLength": 5,
             "order": [
                 [2, "desc"]
             ],
@@ -117,7 +117,7 @@
         });
         $('#dataTable1').DataTable({
             "responsive": true,
-            "pageLength": 10,
+            "pageLength": 5,
             "order": [
                 [3, "desc"]
             ],

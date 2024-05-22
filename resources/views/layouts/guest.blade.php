@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>GeoREDD</title>        
-        <link rel="shortcut icon" type="image/png" href="{{ url('images/mondos.png') }}">
+        <link rel="shortcut icon" type="image/png" href="{{ url('loghi/GeoREDD.png') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
