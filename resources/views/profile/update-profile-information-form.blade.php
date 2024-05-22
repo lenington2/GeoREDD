@@ -81,6 +81,12 @@
                 @endif
             @endif
         </div>
+        <!-- Role -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="role" value="{{ __('Ruolo') }}" />
+            <x-input id="role" type="text" class="mt-1 block w-full" wire:model="state.role" readonly autocomplete="role" />
+            <x-input-error for="role" class="mt-2" />
+        </div>
     </x-slot>
 
     <x-slot name="actions">
