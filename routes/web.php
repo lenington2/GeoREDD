@@ -53,7 +53,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
         Route::post('projects/update/{id}', 'App\Http\Controllers\ProjectController@update');        
 
-        //eliminazione
+        //eliminazione*
         Route::delete('projects/{id}/destroy', 'App\Http\Controllers\ProjectController@destroy');
         Route::delete('users/{id}/destroy', 'App\Http\Controllers\UserController@destroy');
 
