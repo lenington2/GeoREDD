@@ -6,7 +6,7 @@
         <div class="card-header d-flex justify-content-between align-items-center bg-dark">
             <h5 id="card-title" class="card-title text-white">
                 Elenco progetti
-                <i data-feather="info" class="feather-sm fill-white me-1" data-bs-toggle="tooltip" data-bs-placement="top" title="*********"></i>
+                <i data-feather="info" class="feather-sm fill-white me-1" data-bs-toggle="tooltip" data-bs-placement="top" title=""></i>
             </h5>
         </div>
         <div class="card-body bg-light">
