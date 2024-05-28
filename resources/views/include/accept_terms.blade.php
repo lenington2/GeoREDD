@@ -23,13 +23,12 @@
             <div class="modal-footer" style="background-color: #ffffff; color:rgb(255, 255, 255);">
                 <form action="{{ route('accept-terms') }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-primary">Accetta</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Accetta</button>
                 </form>
                 <form method="POST" action="{{ route('logout') }}" style="display: inline;">
                     @csrf
-                    <button type="submit" class="btn btn-danger btn-sm">
-                        <span class="fas fa-sign-out-alt" aria-hidden="true"></span>
-                        Logout
+                    <button type="submit" class="btn btn-danger btn-sm">                       
+                        Aon accetto
                     </button>
                 </form>
             </div>
