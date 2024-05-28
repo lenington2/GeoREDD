@@ -1,5 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 @include('include.delete')
+@include('include.accept_terms')
 
 <div class="row">
     <div class="col-3">
@@ -68,4 +69,25 @@
             $('#download-link').attr('href', '/download/' + projectId);
         });
     });
+
+    
+
+    $(document).ready(function() {
+    var accepted = localStorage.getItem('accepted');
+    if (!accepted) {
+        $('#benvenutobdf').modal('toggle');
+    }
+
+    $('#acceptBtn').click(function() {
+        // Memorizza lo stato di accettazione
+        localStorage.setItem('accepted', true);
+        // Chiudi il modal
+        $('#benvenutobdf').modal('hide');
+    });
+
+    // Opzionale: chiudi il modal dopo un certo periodo di tempo
+    setTimeout(function() {
+        $('#benvenutobdf').modal('hide');
+    }, 10000);
+});
 </script>
