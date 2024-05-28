@@ -1,3 +1,3 @@
-# Privacy Policy
+# Informativa sulla privacy
 
-Edit this file to define the privacy policy for your application.
+Aggiunta testo bla bla bla
