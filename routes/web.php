@@ -7,6 +7,9 @@ use App\Http\Controllers\ProjectController;
 use illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect()->route('dashboard');
+    }
     return view('auth.login')->with('title', 'GeoREDD - Login');
 });
 
