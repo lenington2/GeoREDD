@@ -84,10 +84,5 @@
         // Chiudi il modal
         $('#benvenutobdf').modal('hide');
     });
-
-    // Opzionale: chiudi il modal dopo un certo periodo di tempo
-    setTimeout(function() {
-        $('#benvenutobdf').modal('hide');
-    }, 10000);
 });
 </script>

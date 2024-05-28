@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Project;
 use App\Models\User;
-use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\UserController;
 use illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
@@ -12,6 +12,8 @@ Route::get('/', function () {
     }
     return view('auth.login')->with('title', 'GeoREDD - Login');
 });
+
+
 
 
 Route::middleware([
@@ -63,12 +65,17 @@ Route::middleware(['auth:sanctum'])->group(function () {
        
     });
 
+    //accetta termini e privacy
+    Route::post('/accept-terms', [UserController::class, 'acceptTerms'])->name('accept-terms');
+
     //visualizzazione
     Route::get('mappa/{id}', 'App\Http\Controllers\ProjectController@mappa');
 
     //download
     Route::get('download/{id}', 'App\Http\Controllers\ProjectController@download');
 });
+
+
 
 
 

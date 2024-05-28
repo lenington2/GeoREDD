@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -81,4 +82,17 @@ class UserController extends Controller
 
         return redirect()->route('dashboard')->with('message', 'Utente eliminato con successo!');
     }
+    public function acceptTerms(Request $request)
+    {
+        $user = Auth::user();
+        if ($user) {
+            $user->accept_terms = 1;
+            $user->save();
+
+            return redirect()->back()->with('success', 'Termini accettati.');
+        }
+
+        return redirect()->back()->with('error', 'Errore durante l\'aggiornamento dei termini di accettazione.');
+    }
+    
 }
