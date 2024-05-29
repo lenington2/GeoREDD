@@ -18,8 +18,8 @@
                         <x-label for="terms">
                             <div class="flex items-center justify-center">
                                 <div class="ms-2">
-                                    {!! __('Per proseguire ti invitiamo a leggere ed accettare l\':privacy_policy e bla bla bla', [
-                                        'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' . __('Termini') . '</a>',
+                                    {!! __('Per proseguire, ti invitiamo a leggere e accettare l\':privacy_policy e le :specs disponibili.', [
+                                        'specs' => '<a target="_blank" href="' . route('specs.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' . __('Specifiche relative agli elaborati cartografici') . '</a>',
                                         'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' . __('Informativa sulla privacy') . '</a>',
                                     ]) !!}
                                 </div>

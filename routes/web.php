@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Project;
 use App\Models\User;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SpecsController;
 use illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
@@ -27,7 +28,7 @@ Route::middleware([
             ->get();
         $role = Auth::user()->role;
         $authenticatedUser = Auth::user();
-        if($role == 'admin') {  
+        if($role == 'admin') {
             $users = User::where('id', '!=', $authenticatedUser->id)->get();
             return view('dashboard', ['projects' => $projects, 'users'=> $users]);
         } else {
@@ -54,16 +55,18 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::get('/edit-project/{id}', function ($id) {
             $project = Project::findOrFail($id);
             return view('edit-project', ['project' => $project]);
-        })->name('edit-project');       
+        })->name('edit-project');
 
-        Route::post('projects/update/{id}', 'App\Http\Controllers\ProjectController@update');        
+        Route::post('projects/update/{id}', 'App\Http\Controllers\ProjectController@update');
 
         //eliminazione*
         Route::delete('projects/{id}/destroy', 'App\Http\Controllers\ProjectController@destroy');
         Route::delete('users/{id}/destroy', 'App\Http\Controllers\UserController@destroy');
 
-       
+
     });
+
+    Route::get('/specs', [SpecsController::class, 'show'])->name('specs.show');
 
     //accetta termini e privacy
     Route::post('/accept-terms', [UserController::class, 'acceptTerms'])->name('accept-terms');
