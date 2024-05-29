@@ -6,30 +6,39 @@
             <!-- Modal Header -->
             <div class="row">
                 <div class="col-12 align-self-center">
-                    <img style=" display: block; margin-left: auto; margin-right: auto; " width="200" 
-                        src="https://test.redd-realestate-data.com/logo/REDD_rosso.png" alt="redd">
+                    <img style="display: block; margin-left: auto; margin-right: auto;" width="200" src="{{ url('images/GeoREDD_logo_scritta.png') }}" alt="georedd">
                 </div>
             </div>
-            <div class="row align-items-start">
+            <br>
+            <div class="row">
                 <div class="col-12">
-                    <h2 style="text-align: center;">Benvenuto in GeoRedd!</h2>
-                    <h5 style="font-size:18px; text-align: center; margin: 20px;">
-                        Ti ricordiamo che il tuo username e password sono strettamente personali. 
-                    </h5>
+                    <h1 style="text-align: center;">Benvenuto!</h1>
+                    @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                    <div class="mt-4 text-center">
+                        <x-label for="terms">
+                            <div class="flex items-center justify-center">
+                                <div class="ms-2">
+                                    {!! __('Per proseguire ti invitiamo a leggere ed accettare l\':privacy_policy e bla bla bla', [
+                                        'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' . __('Termini') . '</a>',
+                                        'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' . __('Informativa sulla privacy') . '</a>',
+                                    ]) !!}
+                                </div>
+                            </div>
+                        </x-label>
+                    </div>
+                    @endif
                 </div>
             </div>
             <br><br>
             <!-- Modal footer -->
             <div class="modal-footer" style="background-color: #ffffff; color:rgb(255, 255, 255);">
-                <form action="{{ route('accept-terms') }}" method="POST">
+                <form method="POST" action="{{ route('logout') }}" class="d-inline">
                     @csrf
-                    <button type="submit" class="btn btn-primary btn-sm">Accetta</button>
+                    <button type="submit" class="btn btn-danger btn-sm">Non accetto</button>
                 </form>
-                <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                <form action="{{ route('accept-terms') }}" method="POST" class="d-inline">
                     @csrf
-                    <button type="submit" class="btn btn-danger btn-sm">                       
-                        Aon accetto
-                    </button>
+                    <button type="submit" class="btn btn-primary btn-sm">Accetto</button>
                 </form>
             </div>
         </div>
