@@ -1,6 +1,5 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-{{-- @include('include.deleteUser') --}}
 @include('include.delete')
 
 <div class="row">
@@ -50,7 +49,7 @@
                                     <a style="float: center; font-size: 12px; margin-left: 5px;"
                                         class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete"
                                         data-id="{{ $project->idproject }}" data-title="{{ $project->title }}"
-                                        data-type="project" title="elimina progetto">
+                                        data-type="progetto" title="elimina progetto">
                                         <span class="fas fa-trash" aria-hidden="true"></span>
                                     </a>
                                 </td>
@@ -97,7 +96,7 @@
                                     <a style="float: center; font-size: 12px; margin-left: 5px;"
                                         class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete"
                                         data-id="{{ $user->id }}" data-title="{{ $user->name }}"
-                                        data-type="user" title="elimina utente">
+                                        data-type="utente" title="elimina utente">
                                         <span class="fas fa-trash" aria-hidden="true"></span>
                                     </a>
                                 </td>
