@@ -35,12 +35,19 @@
 <script>
     $('#delete').on('show.bs.modal', function(event) {
         let button = $(event.relatedTarget);
-        let id = button.data('idprogetto');
+        let id = button.data('id');
         let title = button.data('title');
+        let type = button.data('type');
         document.getElementById("title").innerHTML = title;
+        let form = document.getElementById('deleteForm');
 
         // Set form action URL with project ID
-        let form = document.getElementById('deleteForm');
-        form.action = `/projects/${id}/destroy`;
+        if(type == 'project'){
+            form.action = `/projects/${id}/destroy`;
+        }else{
+            form.action = `/users/${id}/destroy`;
+        }
+
+
     });
 </script>

@@ -1,8 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-@include('include.deleteUser')
+{{-- @include('include.deleteUser') --}}
 @include('include.delete')
-
 
 <div class="row">
     <!-- Prima card: Elenco Progetti -->
@@ -50,8 +49,8 @@
                                     </a>
                                     <a style="float: center; font-size: 12px; margin-left: 5px;"
                                         class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete"
-                                        data-idprogetto="{{ $project->idproject }}" data-title="{{ $project->title }}"
-                                        title="elimina progetto">
+                                        data-id="{{ $project->idproject }}" data-title="{{ $project->title }}"
+                                        data-type="project" title="elimina progetto">
                                         <span class="fas fa-trash" aria-hidden="true"></span>
                                     </a>
                                 </td>
@@ -94,11 +93,11 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->role }}</td>
                                 <td>{{ $user->created_at }}</td>
-                                <td style="text-align: center; width: 100px;">                                    
+                                <td style="text-align: center; width: 100px;">
                                     <a style="float: center; font-size: 12px; margin-left: 5px;"
-                                        class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteUser"
-                                        data-iduser="{{ $user->id }}" data-name="{{ $user->name }}"
-                                        title="elimina utente">
+                                        class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete"
+                                        data-id="{{ $user->id }}" data-title="{{ $user->name }}"
+                                        data-type="user" title="elimina utente">
                                         <span class="fas fa-trash" aria-hidden="true"></span>
                                     </a>
                                 </td>
