@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Project;
 use App\Models\User;
+use App\Models\Authorization;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SpecsController;
 use illuminate\Support\Facades\Auth;
@@ -48,12 +49,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
             return view('new-user');
         })->name('new-user');
 
-        Route::get('/authorization/{id}', function ($id) {
-            $projects = Project::all();
-            $user = User::findOrFail($id);
-            return view('auth-user', ['projects' => $projects, 'user' => $user]);
-        })->name('auth-user');
-
         Route::post('projects/create', 'App\Http\Controllers\ProjectController@create');
         Route::post('users/create', 'App\Http\Controllers\UserController@create');
 
@@ -68,6 +63,14 @@ Route::middleware(['auth:sanctum'])->group(function () {
         //eliminazione*
         Route::delete('projects/{id}/destroy', 'App\Http\Controllers\ProjectController@destroy');
         Route::delete('users/{id}/destroy', 'App\Http\Controllers\UserController@destroy');
+
+        //autorizzazione
+        Route::get('/authorization/{id}', function ($id) {
+            $projects = Project::all();
+            $auth = Authorization::all();
+            $user = User::findOrFail($id);
+            return view('auth-user', ['projects' => $projects, 'user' => $user]);
+        })->name('auth-user');
 
 
     });
