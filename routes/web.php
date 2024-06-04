@@ -48,6 +48,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
             return view('new-user');
         })->name('new-user');
 
+        Route::get('authorization/{id}', 'App\Http\Controllers\UserController@authorization');
+
         Route::post('projects/create', 'App\Http\Controllers\ProjectController@create');
         Route::post('users/create', 'App\Http\Controllers\UserController@create');
 

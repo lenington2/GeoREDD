@@ -94,5 +94,13 @@ class UserController extends Controller
 
         return redirect()->back()->with('error', 'Errore durante l\'aggiornamento dei termini di accettazione.');
     }
+
+    public function authorization(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        
+
+        return redirect()->route('auth-user')->with('message', 'Progetto eliminato con successo!');
+    }
     
 }
