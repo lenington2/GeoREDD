@@ -11,18 +11,25 @@
                     @endforeach
                 </div>
             @endif
-            <fieldset>
-                <div class="container">                                                         
-                    <form action="/action_page.php">
-                      <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="switch1" name="example">
-                        <label class="custom-control-label" for="switch1">PROVA MAPPA DDPRO2</label>
-                      </div>
-                      <br>
-                      <button type="submit" class="btn btn-danger">Salva</button>
-                    </form>
-                  </div>
-            </fieldset>
+            <div class="card-body bg-light">
+                <div class="table-responsive">
+                    <table class="table table-hover" id="dataTable0" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Titolo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($projects as $project)
+                                <tr>
+                                    <td><input type="checkbox" id="check" name="check" value="check">
+                                    <label for="vehicle1">{{$project->title}}</label></td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </form>
 </div>

@@ -48,7 +48,11 @@ Route::middleware(['auth:sanctum'])->group(function () {
             return view('new-user');
         })->name('new-user');
 
-        Route::get('authorization/{id}', 'App\Http\Controllers\UserController@authorization');
+        Route::get('/authorization/{id}', function ($id) {
+            $projects = Project::all();
+            $user = User::findOrFail($id);
+            return view('auth-user', ['projects' => $projects, 'user' => $user]);
+        })->name('auth-user');
 
         Route::post('projects/create', 'App\Http\Controllers\ProjectController@create');
         Route::post('users/create', 'App\Http\Controllers\UserController@create');
