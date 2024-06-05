@@ -26,15 +26,23 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        $projects = Project::join('users', 'projects.created_by', '=', 'users.id')
-            ->select('projects.*', 'users.name as creator_name')
-            ->get();
         $role = Auth::user()->role;
         $authenticatedUser = Auth::user();
-        if($role == 'admin') {
+        if ($role == 'admin') {
+            $projects = Project::join('users', 'projects.created_by', '=', 'users.id')
+                ->select('projects.*', 'users.name as creator_name')
+                ->get();
             $users = User::where('id', '!=', $authenticatedUser->id)->get();
-            return view('dashboard', ['projects' => $projects, 'users'=> $users]);
+
+            return view('dashboard', ['projects' => $projects, 'users' => $users]);
         } else {
+            $projects = Project::join('authorizations', 'projects.idproject', '=', 'authorizations.project_id')
+                ->where('authorizations.user_id', '=', $authenticatedUser->id)
+                ->where('authorizations.is_authorized', '=', 1)
+                ->join('users', 'projects.created_by', '=', 'users.id')
+                ->select('projects.*', 'users.name as creator_name')
+                ->get();
+
             return view('dashboardUser', ['projects' => $projects]);
         }
     })->name('dashboard');
@@ -68,7 +76,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
         //autorizzazione
         Route::get('/authorization/{id}', function ($id) {
-            $projects = Project::all();
+            $projects = Project::join('users', 'projects.created_by', '=', 'users.id')
+                ->select('projects.*', 'users.name as creator_name')
+                ->get();
             $user = User::findOrFail($id);
             $auth = Authorization::where('user_id', $id)->get();
             return view('auth-user', ['projects' => $projects, 'user' => $user, 'auth' => $auth]);

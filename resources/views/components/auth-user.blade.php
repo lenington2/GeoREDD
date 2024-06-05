@@ -1,6 +1,7 @@
 <div class="card-header d-flex justify-content-between align-items-center bg-dark">
-    <h5 class="card-title text-white">Elenco Progetti <i data-feather="info" class="feather-sm fill-white me-1" data-bs-toggle="tooltip" data-bs-placement="top" title="In questa sezione puoi gestire i progetti, associarne uno a un cliente e crearne uno nuovo dal pulsante Nuovo"></i></h5>
+    <h5 class="card-title text-white">Modifica autorizzazioni per l'utente: {{ $user->name }}</h5>
 </div>
+
 <div class="card-body bg-light">
     <form action="{{ url('authorization/create') }}" enctype="multipart/form-data" method="POST">
         @csrf
@@ -19,7 +20,10 @@
                     <thead>
                         <tr>
                             <th>Titolo</th>
-                            <th>Azioni</th>
+                            <th>Note</th>
+                            <th>Data caricamento</th>
+                            <th>Caricato da</th>
+                            <th>Autorizzazione</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,11 +34,16 @@
                             @endphp
                             <tr>
                                 <td>{{ $project->title }}</td>
+                                <td>{{ $project->note }}</td>
+                                <td>{{ $project->created_at }}</td>
+                                <td><b>{{ $project->creator_name }}</b></td>
                                 <td>
                                     <div class="form-group">
                                         <select class="form-control" name="projects[{{ $project->idproject }}]">
-                                            <option value="1" {{ $isAuthorized == 1 ? 'selected' : '' }}>Si</option>
-                                            <option value="0" {{ $isAuthorized == 0 ? 'selected' : '' }}>No</option>
+                                            <option value="1" {{ $isAuthorized == 1 ? 'selected' : '' }}>Si
+                                            </option>
+                                            <option value="0" {{ $isAuthorized == 0 ? 'selected' : '' }}>No
+                                            </option>
                                         </select>
                                     </div>
                                 </td>
@@ -43,7 +52,12 @@
                     </tbody>
                 </table>
             </div>
-            <button type="submit" class="btn btn-danger px-4">Salva</button>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-success btn-flat btn-sm pull-right mr-2">Salva</button>
+                    <a href="{{ url('dashboard') }}" class="btn btn-danger btn-flat btn-sm pull-right mr-2">Annulla</a>
+                </div>
+            </div>
         </div>
     </form>
 </div>
