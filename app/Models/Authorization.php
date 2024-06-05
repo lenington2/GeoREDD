@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class authorization extends Model
 {
     use HasFactory;
-    protected $table = 'authorization';
+    protected $table = 'authorizations';
     protected $primaryKey = 'id';
 
     /**
@@ -17,8 +17,9 @@ class authorization extends Model
      * @var array
      */
     protected $fillable = [
-        'iduser',
-        'idproject',
+        'user_id',
+        'project_id',
+        'is_authorized',
         'created_by',
         'updated_by'
     ];

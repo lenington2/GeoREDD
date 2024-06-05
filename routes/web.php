@@ -1,12 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use illuminate\Support\Facades\Auth;
 use App\Models\Project;
 use App\Models\User;
 use App\Models\Authorization;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SpecsController;
-use illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AuthorizationController;
+
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -67,10 +69,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
         //autorizzazione
         Route::get('/authorization/{id}', function ($id) {
             $projects = Project::all();
-            $auth = Authorization::all();
             $user = User::findOrFail($id);
-            return view('auth-user', ['projects' => $projects, 'user' => $user]);
+            $auth = Authorization::where('user_id', $id)->get();
+            return view('auth-user', ['projects' => $projects, 'user' => $user, 'auth' => $auth]);
         })->name('auth-user');
+
+        Route::post('/authorization/create', [AuthorizationController::class, 'create']);
 
 
     });

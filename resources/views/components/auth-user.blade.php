@@ -3,6 +3,8 @@
 </div>
 <div class="card-body bg-light">
     <form action="{{ url('authorization/create') }}" enctype="multipart/form-data" method="POST">
+        @csrf
+        <input type="hidden" name="user_id" value="{{ $user->id }}">
         <div class="card-body">
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -11,35 +13,36 @@
                     @endforeach
                 </div>
             @endif
-            <div class="card-body bg-light">
-                <div class="table-responsive">
-                    <table class="table table-hover" id="dataTable0" width="100%" cellspacing="0">
-                        <thead>
+
+            <div class="table-responsive">
+                <table class="table table-hover" id="dataTable0" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Titolo</th>
+                            <th>Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($projects as $project)
+                            @php
+                                $authorization = $auth->firstWhere('project_id', $project->idproject);
+                                $isAuthorized = $authorization ? $authorization->is_authorized : 0;
+                            @endphp
                             <tr>
-                                <th>Titolo</th>
-                                <th>Azioni</th>
+                                <td>{{ $project->title }}</td>
+                                <td>
+                                    <div class="form-group">
+                                        <select class="form-control" name="projects[{{ $project->idproject }}]">
+                                            <option value="1" {{ $isAuthorized == 1 ? 'selected' : '' }}>Si</option>
+                                            <option value="0" {{ $isAuthorized == 0 ? 'selected' : '' }}>No</option>
+                                        </select>
+                                    </div>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($projects as $project)
-                                <tr>                                    
-                                  <td> {{$project->title}}</td>
-                                  <td>                                    
-                                        <div class="form-group">                                            
-                                            <select class="form-control" name="{{$project->idproject}}">                                        
-                                                <option value="1" {{-- @if($row->disclaimer == 1) --}} selected="selected" {{-- @endif --}}>Si</option>
-                                                <option value="0" {{-- @if($row->disclaimer == 0) --}}selected="selected" {{-- @endif --}}>No</option>
-                                            </select>
-                                        </div>                                    
-                                  </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
-            @csrf
-            <input type="hidden" name="projects_idproject" value="{{$project -> idproject }}">
             <button type="submit" class="btn btn-danger px-4">Salva</button>
         </div>
     </form>

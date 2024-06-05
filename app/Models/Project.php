@@ -33,7 +33,13 @@ class Project extends Model
      */
     protected $hidden = [];
 
-    public function customer(){
-        return $this->hasOne('App\Models\User','id','created_by');
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function assignedUsers()
+    {
+        return $this->belongsToMany(User::class, 'authorizations')->withPivot('is_authorized')->withTimestamps();
     }
 }

@@ -43,8 +43,14 @@ class User extends Authenticatable
         'two_factor_secret',
     ];
 
-    public function projects(){
-        return $this->hasMany('App\Models\Project','created_by','id');
+    public function projects()
+    {
+        return $this->hasMany('App\Models\Project', 'created_by', 'id');
+    }
+
+    public function assignedProjects()
+    {
+        return $this->belongsToMany(Project::class, 'authorizations')->withPivot('is_authorized')->withTimestamps();
     }
     public function vincolo_projects()
     {
