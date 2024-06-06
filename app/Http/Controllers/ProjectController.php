@@ -131,16 +131,22 @@ class ProjectController extends Controller
     }
 
     public function download(Request $request, $id)
-{
-    $project = Project::findOrFail($id);
-    $path = $project->file_path;
-    
-    if (Storage::exists('public/'.$path)) {
-        return Storage::download('public/'.$path);
-    }
-   
-    return redirect()->back()->with('error', 'Il file non esiste.');
-}
+    {
+        if ($id == 'italy') {
+            return Storage::download('public/files/italy.xlsx');
+        }
 
+        $project = Project::findOrFail($id);
+        $path = $project->file_path;
+
+        if ($path) {
+            if (Storage::exists('public/' . $path)) {
+                return Storage::download('public/' . $path);
+            }
+        }
+
+        return redirect()->back()->with('error', 'Non esiste alcun file per il progetto selezionato');
+
+    }
 
 }

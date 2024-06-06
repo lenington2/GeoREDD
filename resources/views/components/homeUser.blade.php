@@ -7,7 +7,8 @@
         <div class="card-header d-flex justify-content-between align-items-center bg-dark">
             <h5 id="card-title" class="card-title text-white">
                 Elenco progetti
-                <i data-feather="info" class="feather-sm fill-white me-1" data-bs-toggle="tooltip" data-bs-placement="top" title=""></i>
+                <i data-feather="info" class="feather-sm fill-white me-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title=""></i>
             </h5>
         </div>
         <div class="card-body bg-light">
@@ -16,16 +17,25 @@
                     <thead>
                         <tr>
                             <th>Titolo</th>
-                            <th>Azioni</th>
+                            <th>Note</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($projects as $project)
-                        <tr>
-                            <td>{{ $project->title }}</td>
-                            <td><button class="btn btn-primary show-map" data-url="{{ $project->url_mappa }}" data-title="{{ $project->title }}" data-id="{{ $project->idproject }}">Mostra Mappa</button></td>
-                        </tr>
-                        @endforeach
+                        @forelse ($projects as $project)
+                            <tr>
+                                <td>
+                                    <button class="btn btn-primary show-map" data-url="{{ $project->url_mappa }}"
+                                        data-title="{{ $project->title }}" data-id="{{ $project->idproject }}">
+                                        {{ $project->title }}
+                                    </button>
+                                </td>
+                                <td>{{ $project->note }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="2">Nessun progetto ancora assegnato.</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -38,15 +48,17 @@
                     Mappa Italia
                 </h4>
                 <div class="dropdown">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Azioni</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle"
+                        data-toggle="dropdown">Azioni</button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#" id="fullScreenBtn">Fullscreen</a>
-                        <a id="download-link" class="dropdown-item" href="#">Scarica layers</a>
+                        <a id="download-link" class="dropdown-item" href="download/italy">Scarica layers</a>
                     </div>
                 </div>
             </div>
             <div class="card-body bg-light" id="cardBody">
-                <iframe id="GeoREDD" title="GeoREDD" style="width: 100%; height: 400" height="600" src="https://google.com"></iframe>  {{-- inserire mappa Italia --}}
+                <iframe id="GeoREDD" title="GeoREDD" style="width: 100%; height: 400" height="600"
+                    src="https://webgis.redd-realestate-data.com/en/map/territorio-italiano/?__bratk=2b24b82d91f4ab903651a0b36e375caffbe58003"></iframe> {{-- mappa italia --}}
             </div>
         </div>
     </div>
@@ -70,19 +82,19 @@
         });
     });
 
-    
+
 
     $(document).ready(function() {
-    var accepted = localStorage.getItem('accepted');
-    if (!accepted) {
-        $('#benvenutobdf').modal('toggle');
-    }
+        var accepted = localStorage.getItem('accepted');
+        if (!accepted) {
+            $('#benvenutobdf').modal('toggle');
+        }
 
-    $('#acceptBtn').click(function() {
-        // Memorizza lo stato di accettazione
-        localStorage.setItem('accepted', true);
-        // Chiudi il modal
-        $('#benvenutobdf').modal('hide');
+        $('#acceptBtn').click(function() {
+            // Memorizza lo stato di accettazione
+            localStorage.setItem('accepted', true);
+            // Chiudi il modal
+            $('#benvenutobdf').modal('hide');
+        });
     });
-});
 </script>
