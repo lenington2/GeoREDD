@@ -81,7 +81,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
                 ->get();
             $user = User::findOrFail($id);
             $auth = Authorization::where('user_id', $id)->get();
-            return view('auth-user', ['projects' => $projects, 'user' => $user, 'auth' => $auth]);
+            if($user->role != 'admin') {
+                return view('auth-user', ['projects' => $projects, 'user' => $user, 'auth' => $auth]);
+            }else{
+                return redirect()->route('dashboard')->with('error', 'L\'utente selezionato è un admin.');
+            }
+            
         })->name('auth-user');
 
         Route::post('/authorization/create', [AuthorizationController::class, 'create']);
